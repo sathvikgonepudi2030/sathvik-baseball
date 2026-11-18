@@ -66,6 +66,17 @@ section:not(.dark-section) .section-header .eyebrow{color:#765315}
 .cta .recruiting-social{margin-top:16px}
 .recruiting-social a{color:#ffe4aa;font-weight:700;text-decoration:underline;text-underline-offset:4px}
 .recruiting-social span{display:block;margin-top:3px;font-size:.875rem}
+
+.hero-carousel{min-width:0}
+.hero .photo-panel img.gallery-slide{object-fit:contain;background:#071725}
+.hero-photo-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:12px;color:#e8edf2}
+.hero-photo-controls[hidden]{display:none}
+.hero-photo-controls button{min-width:44px;min-height:44px;border:1px solid #8199ad;border-radius:6px;background:#172f43;color:#fff}
+.hero-photo-controls button:hover{background:#254962}
+.hero-photo-controls button[aria-label]{font-size:1.55rem;line-height:1}
+#heroPhotoCount{min-width:50px;text-align:center;font-size:.86rem}
+#heroPhotoToggle{padding:0 12px;font-size:.82rem}
+@media print{.hero-photo-controls{display:none}}
 </style>
 </head>
 <body>
@@ -79,16 +90,24 @@ section:not(.dark-section) .section-header .eyebrow{color:#765315}
       <p class="hero-class">Baseball recruiting · Class of 2030</p>
       <h1 id="athlete-name">Sathvik<br><span>Gonepudi</span></h1>
       <p class="hero-positions">Right-handed pitcher <span aria-hidden="true">/</span> Outfield <span aria-hidden="true">/</span> Shortstop</p>
-      <p class="hero-school">Downingtown West High School · Downingtown, PA</p>
+      <p class="hero-school">Downingtown West High School · Downingtown, PA<br>Playing baseball since 2017</p>
       <div class="actions">
         <a class="btn" href="#video">Watch game film</a>
         <a class="btn secondary" href="#contact">Contact the family</a>
       </div>
     </div>
-    <figure class="photo-panel has-photo">
-      <img id="athletePhoto" src="sathvik-gameday.jpg" width="1536" height="1024" fetchpriority="high" alt="Sathvik running the baseline in his red Combat jersey">
-      <figcaption class="photo-strip" id="photoCaption">Sathvik on game day</figcaption>
-    </figure>
+    <div class="hero-carousel" id="heroCarousel" role="region" aria-label="Sathvik’s game-day photos">
+      <figure class="photo-panel has-photo">
+        <img id="athletePhoto" src="sathvik-gameday.jpg" width="1536" height="1024" fetchpriority="high" alt="Sathvik running the baseline in his red Combat jersey">
+        <figcaption class="photo-strip" id="photoCaption">Sathvik on game day</figcaption>
+      </figure>
+      <div id="heroPhotoControls" class="hero-photo-controls" hidden>
+        <button id="heroPhotoPrevious" type="button" aria-label="Previous photo">‹</button>
+        <span id="heroPhotoCount"></span>
+        <button id="heroPhotoNext" type="button" aria-label="Next photo">›</button>
+        <button id="heroPhotoToggle" type="button">Pause slideshow</button>
+      </div>
+    </div>
   </div>
 </section>
 <div class="stats"><div class="wrap stats-grid"><div class="stat"><strong>2030</strong><span>Graduation</span></div><div class="stat"><strong id="height">5′11″</strong><span>Height *</span></div><div class="stat"><strong id="weight">160 lb</strong><span>Weight *</span></div><div class="stat"><strong id="gpa">4.0</strong><span>GPA</span></div><div class="stat"><strong>RHP</strong><span>Primary position</span></div><div class="stat"><strong>R / R</strong><span>Bats / Throws</span></div></div></div>
@@ -224,11 +243,8 @@ try {
 }
 
 const labels={height:'Height',weight:'Weight',gpa:'GPA',org:'Baseball organization',velo:'Verified fastball velocity (mph)',era:'Season ERA',exitvelo:'Measured exit velocity (mph)',dash:'Timed 60-yard dash (sec)',interests:'Academic interests',pitchLink:'Pitching video URL (https://)',fieldLink:'Fielding video URL (https://)',hitLink:'Hitting video URL (https://)',email:'Parent recruiting email',backupEmail:'Second parent recruiting email',photo:'Photo URL (https://) or paste embedded image data',bioText:'Sathvik’s personal statement'};
-const $=id=>document.getElementById(id);function validUrl(s){try{return ['https:','http:'].includes(new URL(s).protocol)}catch(e){return false}};function apply(){for(const id of ['height','weight','gpa','org','interests','velo','era','exitvelo','dash'])$(id).textContent=profile[id]|| (['velo','era','exitvelo','dash'].includes(id)?'—':'To be added');$('gpa2').textContent=profile.gpa||'To be added';$('bioText').textContent=profile.bioText||defaults.bioText;for(const id of ['pitchLink','fieldLink','hitLink']){const a=$(id);if(!a)continue;a.style.display=validUrl(profile[id])?'inline-block':'none';if(validUrl(profile[id]))a.href=profile[id];else a.removeAttribute('href')}const img = $('athletePhoto');
-const hasCustomPhoto = validUrl(profile.photo) || profile.photo.startsWith('data:image/');
-img.src = hasCustomPhoto ? profile.photo : 'sathvik-gameday.jpg';
-img.alt = hasCustomPhoto ? 'Sathvik’s baseball profile photo' : 'Sathvik running the baseline in his red Combat jersey';
-$('photoCaption').textContent = hasCustomPhoto ? 'Sathvik Gonepudi' : 'Sathvik on game day';
+const $=id=>document.getElementById(id);function validUrl(s){try{return ['https:','http:'].includes(new URL(s).protocol)}catch(e){return false}};function apply(){for(const id of ['height','weight','gpa','org','interests','velo','era','exitvelo','dash'])$(id).textContent=profile[id]|| (['velo','era','exitvelo','dash'].includes(id)?'—':'To be added');$('gpa2').textContent=profile.gpa||'To be added';$('bioText').textContent=profile.bioText||defaults.bioText;for(const id of ['pitchLink','fieldLink','hitLink']){const a=$(id);if(!a)continue;a.style.display=validUrl(profile[id])?'inline-block':'none';if(validUrl(profile[id]))a.href=profile[id];else a.removeAttribute('href')}const hasCustomPhoto = validUrl(profile.photo) || profile.photo.startsWith('data:image/');
+setHeroCover(hasCustomPhoto ? profile.photo : '');
 updateEmail('emailButton', profile.email);
 updateEmail('backupEmailButton', profile.backupEmail);
 }
@@ -258,6 +274,79 @@ for (const field of ['email', 'backupEmail']) {
 return true}
 $('editToggle').onclick=()=>{const open=$('editBar').classList.toggle('open');$('editToggle').setAttribute('aria-expanded',String(open));$('editToggle').textContent=open?'Close editor':'Edit profile';if(open)$('editBar').scrollIntoView({behavior:'smooth',block:'start'})};$('saveEdit').onclick=()=>{if(!collect())return;try{localStorage.setItem(key,JSON.stringify(profile));$('saveStatus').textContent='Saved on this device. Download the updated webpage to publish changes.'}catch(e){$('saveStatus').textContent='Browser storage is full. Use Download updated webpage.'}apply()};$('clearEdit').onclick=()=>{if(!confirm('Reset all local edits on this browser?'))return;localStorage.removeItem(key);localStorage.removeItem(legacyKey);profile={...defaults};Object.keys(labels).forEach(id=>$('edit-'+id).value=profile[id]||'');apply();$('saveStatus').textContent='Local edits reset.'};$('printPage').onclick=()=>window.print();
 $('downloadPage').onclick=()=>{if(!collect())return;apply();const clone=document.documentElement.cloneNode(true);const data=clone.querySelector('#profile-data');data.textContent=JSON.stringify(profile).replace(/</g,'\\u003c');clone.querySelector('#editBar').classList.remove('open');clone.querySelector('#editToggle').textContent='Edit profile';clone.querySelector('#editToggle').setAttribute('aria-expanded','false');const fields=clone.querySelector('#editFields');fields.innerHTML='';const html='<!doctype html>\n'+clone.outerHTML;const b=new Blob([html],{type:'text/html;charset=utf-8'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='sathvik-gonepudi-baseball.html';a.click();setTimeout(()=>URL.revokeObjectURL(u),2000);$('saveStatus').textContent='Updated webpage downloaded. Review it before publishing.'};
+
+function setupHeroCarousel() {
+  const region = $('heroCarousel');
+  const photo = $('athletePhoto');
+  const caption = $('photoCaption');
+  const controls = $('heroPhotoControls');
+  const count = $('heroPhotoCount');
+  const toggle = $('heroPhotoToggle');
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const originalCover = {
+    src: 'sathvik-gameday.jpg',
+    alt: 'Sathvik running the baseline in his red Combat jersey',
+    caption: 'Sathvik on game day'
+  };
+  const gallery = Array.from(document.querySelectorAll('#gallery-groups figure[data-media="photo"]'), figure => {
+    const image = figure.querySelector('img');
+    return {
+      src: image.getAttribute('src'),
+      alt: image.alt,
+      caption: figure.querySelector('figcaption').textContent.trim()
+    };
+  });
+
+  let slides = [];
+  let index = 0;
+  let timer;
+  let playing = !motionPreference.matches;
+
+  function display() {
+    const slide = slides[index];
+    photo.src = slide.src;
+    photo.alt = slide.alt;
+    photo.classList.toggle('gallery-slide', index !== 0);
+    caption.textContent = slide.caption;
+    count.textContent = (index + 1) + ' / ' + slides.length;
+  }
+  function move(step) {
+    index = (index + step + slides.length) % slides.length;
+    display();
+  }
+  function setPlaying(value) {
+    playing = value && slides.length > 1;
+    window.clearInterval(timer);
+    toggle.textContent = playing ? 'Pause slideshow' : 'Play slideshow';
+    caption.setAttribute('aria-live', playing ? 'off' : 'polite');
+    if (playing) {
+      timer = window.setInterval(() => {
+        if (!document.hidden && !region.matches(':hover')) move(1);
+      }, 5500);
+    }
+  }
+  $('heroPhotoPrevious').onclick = () => { setPlaying(false); move(-1); };
+  $('heroPhotoNext').onclick = () => { setPlaying(false); move(1); };
+  toggle.onclick = () => setPlaying(!playing);
+  region.addEventListener('focusin', event => {
+    if (event.target.matches(':focus-visible')) setPlaying(false);
+  });
+  motionPreference.addEventListener('change', event => {
+    if (event.matches) setPlaying(false);
+  });
+
+  return function setCover(customSource) {
+    const cover = customSource
+      ? {src: customSource, alt: 'Sathvik’s baseball profile photo', caption: 'Sathvik Gonepudi'}
+      : originalCover;
+    slides = [cover, ...gallery.filter(slide => slide.src !== cover.src)];
+    index = 0;
+    controls.hidden = slides.length < 2;
+    display();
+    setPlaying(playing);
+  };
+}
+const setHeroCover = setupHeroCarousel();
 $('year').textContent=new Date().getFullYear();apply()})();
 </script>
 
