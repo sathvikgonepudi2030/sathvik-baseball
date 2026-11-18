@@ -83,6 +83,85 @@ section:not(.dark-section) .section-header .eyebrow{color:#765315}
 .source-link{color:#174f70;font-weight:700;text-decoration:underline;text-underline-offset:4px}
 .section-header .gallery-external{margin-top:9px}
 @media(max-width:600px){.honor-band{grid-template-columns:minmax(0,1fr);gap:8px}}
+
+.hero{
+  isolation:isolate;
+  background:linear-gradient(110deg,#081724 10%,#132c40 68%,#204c4d);
+}
+.hero::before{display:none}
+.hero-infield{
+  position:absolute;
+  z-index:-1;
+  top:42%;
+  right:-80px;
+  width:clamp(260px,46vw,620px);
+  aspect-ratio:1;
+  border:2px solid #dfe9dd29;
+  box-shadow:0 0 0 24px #c5ac8420,0 0 0 28px #dfe9dd25,inset 0 0 0 18px #a5cfa414;
+  background:repeating-linear-gradient(90deg,#c3d9c107 0 30px,transparent 30px 60px);
+  transform:translateY(-45%) rotate(45deg);
+  pointer-events:none;
+}
+.hero-infield i{
+  position:absolute;
+  width:15px;
+  height:15px;
+  background:#ece8dca0;
+  border:1px solid #f4ebd2bb;
+  transform:translate(-50%,-50%);
+}
+.hero-infield i:nth-child(1){top:0;left:0}
+.hero-infield i:nth-child(2){top:0;left:100%}
+.hero-infield i:nth-child(3){top:100%;left:100%}
+.hero-infield i:nth-child(4){top:100%;left:0}
+.hero-carousel{position:relative}
+.hero-baseball{
+  position:absolute;
+  z-index:1;
+  top:-18px;
+  right:clamp(9px,2vw,25px);
+  width:clamp(50px,6.8vw,88px);
+  aspect-ratio:1;
+  border-radius:50%;
+  overflow:hidden;
+  pointer-events:none;
+  transform:rotate(-24deg);
+  background:radial-gradient(circle at 30% 23%,#fff9eb 8%,#e4dccc 63%,#a9a598 100%);
+  box-shadow:0 10px 24px #04101cb3,inset 0 0 0 1px #f4efe7;
+}
+.hero-baseball::before,.hero-baseball::after{
+  position:absolute;
+  content:"";
+  inset:-17% auto -17% -62%;
+  width:92%;
+  border:3px dashed #ad292f;
+  border-radius:50%;
+}
+.hero-baseball::after{inset:-17% -62% -17% auto}
+.hero .photo-panel{box-shadow:0 18px 50px #030f1799}
+.stats{border-top:3px solid #9e383b}
+@media(prefers-reduced-motion:no-preference){
+  .hero-infield{animation:field-intro .95s ease-out both}
+  .hero-copy{animation:dugout-intro .58s ease-out both}
+  .hero-baseball{animation:baseball-intro .85s cubic-bezier(.17,.64,.24,1) both}
+}
+@keyframes field-intro{
+  from{opacity:0;transform:translateY(-36%) rotate(35deg) scale(.86)}
+  to{opacity:1;transform:translateY(-45%) rotate(45deg) scale(1)}
+}
+@keyframes dugout-intro{
+  from{transform:translateY(10px);opacity:.65}
+  to{transform:translateY(0);opacity:1}
+}
+@keyframes baseball-intro{
+  from{transform:translate(-65px,-34px) rotate(-198deg) scale(.78);opacity:0}
+  to{transform:translate(0,0) rotate(-24deg) scale(1);opacity:1}
+}
+@media(max-width:600px){
+  .hero-infield{top:58%;right:-125px}
+  .hero-baseball{top:-12px}
+}
+@media print{.hero-baseball,.hero-infield{display:none}}
 </style>
 </head>
 <body>
@@ -90,6 +169,9 @@ section:not(.dark-section) .section-header .eyebrow{color:#765315}
 <header class="top"><div class="wrap nav"><a href="#home" class="mark"><svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 2L34 18 18 34 2 18Z" stroke="#e3b45e" stroke-width="2"/><path d="M9 18h18M18 9v18" stroke="#e3b45e" stroke-width="1"/></svg> SG <span style="font-weight:400;color:#92aabd">/ BASEBALL 2030</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#about">Profile</a><a href="#video">Game film</a><a href="#performance">Performance</a><a href="#academics">Academics</a><a href="#contact">Contact</a></nav></div></header>
 <main id="main-content">
 <section class="hero" id="home" aria-labelledby="athlete-name">
+  <div class="hero-infield" aria-hidden="true">
+    <i></i><i></i><i></i><i></i>
+  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="hero-class">Baseball recruiting · Class of 2030</p>
@@ -102,6 +184,7 @@ section:not(.dark-section) .section-header .eyebrow{color:#765315}
       </div>
     </div>
     <div class="hero-carousel" id="heroCarousel" role="region" aria-label="Sathvik’s game-day photos">
+      <span class="hero-baseball" aria-hidden="true"></span>
       <figure class="photo-panel has-photo">
         <img id="athletePhoto" src="sathvik-gameday.jpg" width="1536" height="1024" fetchpriority="high" alt="Sathvik running the baseline in his red Combat jersey">
         <figcaption class="photo-strip" id="photoCaption">Sathvik on game day</figcaption>
@@ -266,15 +349,23 @@ function setupHeroCarousel() {
   const slides = [cover, ...gallery.filter(slide => slide.src !== cover.src)];
   let index = 0;
   let timer;
+  let photoTransition;
   let playing = !motionPreference.matches;
 
   function display() {
     const slide = slides[index];
+    const changing = photo.getAttribute('src') !== slide.src;
     photo.src = slide.src;
     photo.alt = slide.alt;
     photo.classList.toggle('gallery-slide', index !== 0);
     caption.textContent = slide.caption;
     count.textContent = (index + 1) + ' / ' + slides.length;
+    photoTransition?.cancel();
+    if (changing && !motionPreference.matches && typeof photo.animate === 'function') {
+      photoTransition = photo.animate([{opacity: .62}, {opacity: 1}], {
+        duration: 320, easing: 'ease-out'
+      });
+    }
   }
   function move(step) {
     index = (index + step + slides.length) % slides.length;
