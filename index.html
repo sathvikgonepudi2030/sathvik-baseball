@@ -41,25 +41,63 @@ section:not(.dark-section) .section-header .eyebrow{color:#765315}
 .gallery-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#071827}
 .gallery-photo figcaption{font-weight:700}
 #video [hidden]{display:none}
+
+.hero{
+  background:radial-gradient(ellipse at top right,#253f56 0,transparent 54%),linear-gradient(115deg,#081622,#132b40);
+}
+.hero-grid{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);min-height:0;padding-block:clamp(34px,5.4vw,76px)}
+.hero-class{width:fit-content;margin:0;padding-left:12px;border-left:3px solid #f16c62;color:#e8edf2;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.hero h1{font-size:clamp(44px,6.7vw,94px);line-height:.9;overflow-wrap:normal}
+.hero-positions{margin:0;color:#fff;font-size:clamp(.95rem,1.4vw,1.14rem);font-weight:730}
+.hero-positions span{padding-inline:3px;color:#f28c82}
+.hero-school{margin:7px 0 25px;color:#c6d5df}
+.hero .photo-panel{aspect-ratio:1.46;border-radius:13px;border-color:#628096;margin:0;align-self:center}
+.hero .photo-panel img{object-position:35% 56%}
+.hero .photo-strip{font-size:.78rem;letter-spacing:.035em;text-transform:none}
+.hero .btn{min-height:46px;border-radius:6px}
+.hero .btn:hover{filter:brightness(1.12)}
+.stats .stat:has(#gpa){background:#e9ddc4}
+@media(max-width:850px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .hero .photo-panel{width:100%;max-width:none}
+}
+@media(max-width:480px){.hero h1{font-size:clamp(38px,11vw,54px);margin:17px 0}}
+
+.cta .recruiting-social{margin-top:16px}
+.recruiting-social a{color:#ffe4aa;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.recruiting-social span{display:block;margin-top:3px;font-size:.875rem}
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to player profile</a>
-<header class="top"><div class="wrap nav"><a href="#home" class="mark"><svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 2L34 18 18 34 2 18Z" stroke="#e3b45e" stroke-width="2"/><path d="M9 18h18M18 9v18" stroke="#e3b45e" stroke-width="1"/></svg> SG <span style="font-weight:400;color:#92aabd">/ BASEBALL 2030</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#about">About</a><a href="#performance">Performance</a><a href="#video">Photos &amp; videos</a><a href="#academics">Academics</a><a href="#contact">Contact</a></nav><button class="navbtn" id="editToggle" aria-expanded="false">Edit profile</button></div></header>
+<header class="top"><div class="wrap nav"><a href="#home" class="mark"><svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 2L34 18 18 34 2 18Z" stroke="#e3b45e" stroke-width="2"/><path d="M9 18h18M18 9v18" stroke="#e3b45e" stroke-width="1"/></svg> SG <span style="font-weight:400;color:#92aabd">/ BASEBALL 2030</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#about">Profile</a><a href="#video">Game film</a><a href="#performance">Performance</a><a href="#academics">Academics</a><a href="#contact">Contact</a></nav><button class="navbtn" id="editToggle" aria-expanded="false">Edit profile</button></div></header>
 <div class="editbar" id="editBar"><div class="wrap"><h3>Edit Sathvik's profile — on this device</h3><p class="notice">Edits stay in this browser only. Use “Download updated webpage” to save a public-ready HTML copy. Never add a child's private phone number or home address.</p><div class="editgrid" id="editFields"></div><div class="editactions"><button id="saveEdit">Save changes on this device</button><button class="alt" id="downloadPage">Download updated webpage</button><button class="alt" id="clearEdit">Reset edits</button><button class="alt" id="printPage">Print / PDF</button></div><p class="notice" id="saveStatus" aria-live="polite"></p></div></div>
 <main id="main-content">
-<section class="hero" id="home"><div class="wrap hero-grid"><div><div class="eyebrow">Baseball recruiting · Class of 2030</div><h1>Sathvik<br><span>Gonepudi</span></h1><p class="sub">Right-handed pitcher • Outfield • Shortstop<br>Downingtown West High School • Pennsylvania</p><div class="tags"><span class="pill">Bats right · Throws right</span><span class="pill">All-Star Sports Academy</span></div><div class="actions"><a class="btn" href="#video">View photos and highlights</a><a class="btn secondary" href="#contact">Contact the family</a></div></div><figure class="photo-panel has-photo" id="photoPanel">
-  <img id="athletePhoto" src="field-photo.jpg" alt="Baseball game viewed through the backstop">
-  <figcaption class="photo-strip" id="photoCaption">Game day</figcaption>
-</figure></div></section>
+<section class="hero" id="home" aria-labelledby="athlete-name">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-class">Baseball recruiting · Class of 2030</p>
+      <h1 id="athlete-name">Sathvik<br><span>Gonepudi</span></h1>
+      <p class="hero-positions">Right-handed pitcher <span aria-hidden="true">/</span> Outfield <span aria-hidden="true">/</span> Shortstop</p>
+      <p class="hero-school">Downingtown West High School · Downingtown, PA</p>
+      <div class="actions">
+        <a class="btn" href="#video">Watch game film</a>
+        <a class="btn secondary" href="#contact">Contact the family</a>
+      </div>
+    </div>
+    <figure class="photo-panel has-photo">
+      <img id="athletePhoto" src="sathvik-gameday.jpg" width="1536" height="1024" fetchpriority="high" alt="Sathvik running the baseline in his red Combat jersey">
+      <figcaption class="photo-strip" id="photoCaption">Sathvik on game day</figcaption>
+    </figure>
+  </div>
+</section>
 <div class="stats"><div class="wrap stats-grid"><div class="stat"><strong>2030</strong><span>Graduation</span></div><div class="stat"><strong id="height">5′11″</strong><span>Height *</span></div><div class="stat"><strong id="weight">160 lb</strong><span>Weight *</span></div><div class="stat"><strong id="gpa">4.0</strong><span>GPA</span></div><div class="stat"><strong>RHP</strong><span>Primary position</span></div><div class="stat"><strong>R / R</strong><span>Bats / Throws</span></div></div></div>
-<section class="content" id="about"><div class="wrap"><div class="section-header"><div class="eyebrow">01 / Meet the athlete</div><h2>Driven to develop. On and off the field.</h2><p>A baseball and academic profile for coaches to follow Sathvik's progression throughout high school.</p></div><div class="two"><article class="panel"><h3>About Sathvik</h3><p id="bioText">I'm Sathvik Gonepudi, a Class of 2030 student-athlete at Downingtown West High School in Pennsylvania. I primarily play right-handed pitcher and also play outfield and shortstop. I'm focused on improving my pitching, hitting and fielding while taking academics seriously. My goal is to keep developing and earn the opportunity to compete in college baseball.</p><p class="note">Personal statement: Sathvik should review and edit this in his own voice.</p></article><article class="panel"><h3>Player details</h3><div class="listline"><span>High school</span><strong>Downingtown West</strong></div><div class="listline"><span>Graduation</span><strong>2030</strong></div><div class="listline"><span>Baseball organization</span><strong id="org">All-Star Sports Academy</strong></div><div class="listline"><span>Positions</span><strong>RHP · OF · SS</strong></div><div class="listline"><span>Hometown area</span><strong>Downingtown, PA</strong></div><div class="listline"><span>Bat / throw</span><strong>Right / Right</strong></div></article></div></div></section>
-<section class="content dark-section" id="performance"><div class="wrap"><div class="section-header"><div class="eyebrow">02 / Verified performance</div><h2>Measured progress, season by season.</h2><p>Numbers appear only after they have been measured or verified. A dash means not provided yet — it is not a zero.</p></div><div class="metric-grid"><div class="metric"><strong id="velo">—</strong><span>Fastball velocity</span><small>mph · verified reading</small></div><div class="metric"><strong id="era">—</strong><span>Earned run average</span><small>Latest season</small></div><div class="metric"><strong id="exitvelo">—</strong><span>Exit velocity</span><small>mph · measured</small></div><div class="metric"><strong id="dash">—</strong><span>60-yard dash</span><small>seconds · timed</small></div></div></div></section>
+<section class="content" id="about"><div class="wrap"><div class="section-header"><h2>Player profile</h2></div><div class="two"><article class="panel"><h3>About Sathvik</h3><p id="bioText">I'm Sathvik Gonepudi, a Class of 2030 student-athlete at Downingtown West High School in Pennsylvania. I primarily play right-handed pitcher and also play outfield and shortstop. I'm focused on improving my pitching, hitting and fielding while taking academics seriously. My goal is to keep developing and earn the opportunity to compete in college baseball.</p></article><article class="panel"><h3>Player details</h3><div class="listline"><span>High school</span><strong>Downingtown West</strong></div><div class="listline"><span>Graduation</span><strong>2030</strong></div><div class="listline"><span>Baseball organization</span><strong id="org">All-Star Sports Academy</strong></div><div class="listline"><span>Positions</span><strong>RHP · OF · SS</strong></div><div class="listline"><span>Hometown area</span><strong>Downingtown, PA</strong></div><div class="listline"><span>Bat / throw</span><strong>Right / Right</strong></div></article></div></div></section>
 <section class="content" id="video" aria-labelledby="gallery-heading">
   <div class="wrap">
     <div class="section-header">
       <h2 id="gallery-heading">Baseball photos and videos</h2>
-      <p>Dated media appears newest first. Media awaiting a game date appears below.</p>
+      <p>Game highlights, batting and baserunning photos. Dated media appears newest first.</p>
     </div>
     <div class="gallery-filters" id="gallery-filters" role="group" aria-label="Show media type" hidden>
       <button type="button" data-filter="all" aria-pressed="true">All media</button>
@@ -139,14 +177,19 @@ section:not(.dark-section) .section-header .eyebrow{color:#765315}
     <p id="gallery-empty" hidden>No media in this view.</p>
   </div>
 </section>
-<section class="content" id="academics" style="background:#eeeae1"><div class="wrap"><div class="section-header"><div class="eyebrow">04 / The student-athlete</div><h2>Academics matter, too.</h2><p>Sathvik's academic achievements and interests can be updated each semester as his college goals become clearer.</p></div><div class="two"><div class="panel"><h3>Academic snapshot</h3><div class="listline"><span>High school</span><strong>Downingtown West High School</strong></div><div class="listline"><span>Class</span><strong>2030</strong></div><div class="listline"><span>Current GPA</span><strong id="gpa2">4.0</strong></div><div class="listline"><span>Academic interests</span><strong id="interests">To be added</strong></div></div><div class="panel"><h3>What comes next</h3><p>Keep up with academics, continue developing baseball skills, and document verified progress every season.</p><p>As recruiting becomes relevant, add a public game schedule, selected tournaments, coach-approved references, and a short introduction in Sathvik's own words.</p></div></div></div></section>
-<section class="content"><div class="wrap"><div class="section-header"><div class="eyebrow">05 / Development path</div><h2>Building toward 2030.</h2></div><div class="timeline"><div class="step"><b>2026–27 / FRESHMAN YEAR</b><h3>Build the foundation</h3><p>Develop skills, gather initial film and track academic and athletic progress.</p></div><div class="step"><b>2027–29 / SOPHOMORE–JUNIOR</b><h3>Show improvement</h3><p>Update measured performance, play consistently, and research schools based on fit.</p></div><div class="step"><b>2029–30 / SENIOR YEAR</b><h3>Choose the right fit</h3><p>Compare academic programs, baseball opportunities, finances and personal priorities.</p></div></div></div></section>
+<section class="content" id="academics" style="background:#eeeae1"><div class="wrap"><div class="section-header"><h2>Academics</h2></div><div class="two"><div class="panel"><h3>Academic snapshot</h3><div class="listline"><span>High school</span><strong>Downingtown West High School</strong></div><div class="listline"><span>Class</span><strong>2030</strong></div><div class="listline"><span>Current GPA</span><strong id="gpa2">4.0</strong></div><div class="listline"><span>Academic interests</span><strong id="interests">To be added</strong></div></div><div class="panel"><h3>What comes next</h3><p>Keep up with academics, continue developing baseball skills, and document verified progress every season.</p><p>As recruiting becomes relevant, add a public game schedule, selected tournaments, coach-approved references, and a short introduction in Sathvik's own words.</p></div></div></div></section>
+<section class="content dark-section" id="performance"><div class="wrap"><div class="section-header"><h2>Performance metrics</h2><p>Season stats and measured results will appear here as they’re verified.</p></div><div class="metric-grid"><div class="metric"><strong id="velo">—</strong><span>Fastball velocity</span><small>mph · verified reading</small></div><div class="metric"><strong id="era">—</strong><span>Earned run average</span><small>Latest season</small></div><div class="metric"><strong id="exitvelo">—</strong><span>Exit velocity</span><small>mph · measured</small></div><div class="metric"><strong id="dash">—</strong><span>60-yard dash</span><small>seconds · timed</small></div></div></div></section>
+<section class="content"><div class="wrap"><div class="section-header"><h2>Development goals</h2></div><div class="timeline"><div class="step"><b>2026–27 / FRESHMAN YEAR</b><h3>Build the foundation</h3><p>Develop skills, gather initial film and track academic and athletic progress.</p></div><div class="step"><b>2027–29 / SOPHOMORE–JUNIOR</b><h3>Show improvement</h3><p>Update measured performance, play consistently, and research schools based on fit.</p></div><div class="step"><b>2029–30 / SENIOR YEAR</b><h3>Choose the right fit</h3><p>Compare academic programs, baseball opportunities, finances and personal priorities.</p></div></div></div></section>
 <section class="cta" id="contact" aria-labelledby="contact-heading">
   <div class="wrap cta-inner">
     <div>
       <div class="eyebrow">Recruiting inquiries</div>
       <h2 id="contact-heading">Contact Sathvik’s family</h2>
       <p>Coaches can reach either parent by email.</p>
+      <p class="recruiting-social">
+        <a href="https://www.instagram.com/sathvikgonepudi/">Instagram @sathvikgonepudi</a>
+        <span>Parent-guided private account</span>
+      </p>
     </div>
     <div class="contact-links">
       <a id="emailButton" href="mailto:vgonepudi@gmail.com?subject=Sathvik%20Gonepudi%20%7C%20Class%20of%202030%20Baseball">vgonepudi@gmail.com</a>
@@ -173,9 +216,9 @@ try {
 const labels={height:'Height',weight:'Weight',gpa:'GPA',org:'Baseball organization',velo:'Verified fastball velocity (mph)',era:'Season ERA',exitvelo:'Measured exit velocity (mph)',dash:'Timed 60-yard dash (sec)',interests:'Academic interests',pitchLink:'Pitching video URL (https://)',fieldLink:'Fielding video URL (https://)',hitLink:'Hitting video URL (https://)',email:'Parent recruiting email',backupEmail:'Second parent recruiting email',photo:'Photo URL (https://) or paste embedded image data',bioText:'Sathvik’s personal statement'};
 const $=id=>document.getElementById(id);function validUrl(s){try{return ['https:','http:'].includes(new URL(s).protocol)}catch(e){return false}};function apply(){for(const id of ['height','weight','gpa','org','interests','velo','era','exitvelo','dash'])$(id).textContent=profile[id]|| (['velo','era','exitvelo','dash'].includes(id)?'—':'To be added');$('gpa2').textContent=profile.gpa||'To be added';$('bioText').textContent=profile.bioText||defaults.bioText;for(const id of ['pitchLink','fieldLink','hitLink']){const a=$(id);if(!a)continue;a.style.display=validUrl(profile[id])?'inline-block':'none';if(validUrl(profile[id]))a.href=profile[id];else a.removeAttribute('href')}const img = $('athletePhoto');
 const hasCustomPhoto = validUrl(profile.photo) || profile.photo.startsWith('data:image/');
-img.src = hasCustomPhoto ? profile.photo : 'field-photo.jpg';
-img.alt = hasCustomPhoto ? 'Sathvik’s baseball profile photo' : 'Baseball game viewed through the backstop';
-$('photoCaption').textContent = hasCustomPhoto ? 'Sathvik Gonepudi' : 'Game day';
+img.src = hasCustomPhoto ? profile.photo : 'sathvik-gameday.jpg';
+img.alt = hasCustomPhoto ? 'Sathvik’s baseball profile photo' : 'Sathvik running the baseline in his red Combat jersey';
+$('photoCaption').textContent = hasCustomPhoto ? 'Sathvik Gonepudi' : 'Sathvik on game day';
 updateEmail('emailButton', profile.email);
 updateEmail('backupEmailButton', profile.backupEmail);
 }
