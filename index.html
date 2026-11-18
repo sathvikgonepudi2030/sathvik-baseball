@@ -77,6 +77,12 @@ section:not(.dark-section) .section-header .eyebrow{color:#765315}
 #heroPhotoCount{min-width:50px;text-align:center;font-size:.86rem}
 #heroPhotoToggle{padding:0 12px;font-size:.82rem}
 @media print{.hero-photo-controls{display:none}}
+
+.honor-band{display:grid;grid-template-columns:minmax(125px,.25fr) minmax(0,1fr);gap:18px 24px;margin-top:24px;border-left:4px solid #ad7e28}
+.honor-date{color:#765315;font-size:.86rem;font-weight:750}
+.source-link{color:#174f70;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.section-header .gallery-external{margin-top:9px}
+@media(max-width:600px){.honor-band{grid-template-columns:minmax(0,1fr);gap:8px}}
 </style>
 </head>
 <body>
@@ -116,6 +122,7 @@ section:not(.dark-section) .section-header .eyebrow{color:#765315}
     <div class="section-header">
       <h2 id="gallery-heading">Baseball photos and videos</h2>
       <p>Game highlights, batting and baserunning photos. Dated media appears newest first.</p>
+      <p class="gallery-external"><a class="source-link" href="https://www.youtube.com/@Gonepudis">More videos on the Sath_Rith YouTube channel</a></p>
     </div>
     <div class="gallery-filters" id="gallery-filters" role="group" aria-label="Show media type" hidden>
       <button type="button" data-filter="all" aria-pressed="true">All media</button>
@@ -205,7 +212,15 @@ section:not(.dark-section) .section-header .eyebrow{color:#765315}
     <p id="gallery-empty" hidden>No media in this view.</p>
   </div>
 </section>
-<section class="content" id="academics" style="background:#eeeae1"><div class="wrap"><div class="section-header"><h2>Academics</h2></div><div class="two"><div class="panel"><h3>Academic snapshot</h3><div class="listline"><span>High school</span><strong>Downingtown West High School</strong></div><div class="listline"><span>Class</span><strong>2030</strong></div><div class="listline"><span>Current GPA</span><strong id="gpa2">4.0</strong></div><div class="listline"><span>Academic interests</span><strong id="interests">To be added</strong></div></div><div class="panel"><h3>What comes next</h3><p>Keep up with academics, continue developing baseball skills, and document verified progress every season.</p><p>As recruiting becomes relevant, add a public game schedule, selected tournaments, coach-approved references, and a short introduction in Sathvik's own words.</p></div></div></div></section>
+<section class="content" id="academics" style="background:#eeeae1"><div class="wrap"><div class="section-header"><h2>Academics</h2></div><div class="two"><div class="panel"><h3>Academic snapshot</h3><div class="listline"><span>High school</span><strong>Downingtown West High School</strong></div><div class="listline"><span>Class</span><strong>2030</strong></div><div class="listline"><span>Current GPA</span><strong id="gpa2">4.0</strong></div><div class="listline"><span>Academic interests</span><strong id="interests">To be added</strong></div></div><div class="panel"><h3>What comes next</h3><p>Keep up with academics, continue developing baseball skills, and document verified progress every season.</p><p>As recruiting becomes relevant, add a public game schedule, selected tournaments, coach-approved references, and a short introduction in Sathvik's own words.</p></div></div>
+  <article class="panel honor-band" aria-labelledby="honors-band-title">
+    <div class="honor-date"><time datetime="2023-02-28">February 28, 2023</time></div>
+    <div>
+      <h3 id="honors-band-title">Downingtown Area School District Honors Band</h3>
+      <p>Sathvik was selected to represent West Bradford Elementary School on baritone in the district’s 5th and 6th Grade Honors Band. He performed in the district concert at Downingtown East High School.</p>
+      <a class="source-link" href="https://wb.dasd.org/wbnews-events/wbnews/wbdetails/~board/wb-elementary-board/post/wb-honors-band">Read the school announcement</a>
+    </div>
+  </article></div></section>
 <section class="content dark-section" id="performance"><div class="wrap"><div class="section-header"><h2>Performance metrics</h2><p>Season stats and measured results will appear here as they’re verified.</p></div><div class="metric-grid"><div class="metric"><strong id="velo">—</strong><span>Fastball velocity</span><small>mph · verified reading</small></div><div class="metric"><strong id="era">—</strong><span>Earned run average</span><small>Latest season</small></div><div class="metric"><strong id="exitvelo">—</strong><span>Exit velocity</span><small>mph · measured</small></div><div class="metric"><strong id="dash">—</strong><span>60-yard dash</span><small>seconds · timed</small></div></div></div></section>
 <section class="content"><div class="wrap"><div class="section-header"><h2>Development goals</h2></div><div class="timeline"><div class="step"><b>2026–27 / FRESHMAN YEAR</b><h3>Build the foundation</h3><p>Develop skills, gather initial film and track academic and athletic progress.</p></div><div class="step"><b>2027–29 / SOPHOMORE–JUNIOR</b><h3>Show improvement</h3><p>Update measured performance, play consistently, and research schools based on fit.</p></div><div class="step"><b>2029–30 / SENIOR YEAR</b><h3>Choose the right fit</h3><p>Compare academic programs, baseball opportunities, finances and personal priorities.</p></div></div></div></section>
 <section class="cta" id="contact" aria-labelledby="contact-heading">
