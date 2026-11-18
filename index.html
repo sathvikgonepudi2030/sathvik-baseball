@@ -7,33 +7,283 @@
 <style>
 :root{--navy:#0c1b2c;--navy2:#112943;--cream:#f7f4eb;--gold:#e3b45e;--muted:#9db0be;--ink:#1b2d3d;--edge:rgba(255,255,255,.16)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1140px,calc(100% - 40px));margin:auto}.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--edge)}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.mark{font-weight:800;letter-spacing:.04em;font-size:14px;display:flex;align-items:center;gap:10px}.mark svg{width:27px;height:27px}.navlinks{display:flex;gap:25px;font-size:13px;color:#c9d7df}.navlinks a:hover{color:var(--gold)}.navbtn,.btn{border:1px solid var(--gold);border-radius:4px;padding:10px 16px;font-size:13px;font-weight:750;color:var(--gold);background:transparent}.hero{background:radial-gradient(circle at 83% 8%,#23445f 0,transparent 40%),linear-gradient(125deg,#081827,#122a43);color:white;overflow:hidden;position:relative}.hero:before{content:"";position:absolute;border:1px solid rgba(255,255,255,.08);width:740px;height:740px;border-radius:50%;right:-310px;top:-220px}.hero-grid{min-height:570px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:60px;padding:65px 0}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}h1{font-size:clamp(50px,6.5vw,92px);line-height:.95;letter-spacing:-.065em;margin:20px 0 24px;font-weight:850}h1 span{color:var(--gold)}.sub{font-size:18px;color:#d3dde5;max-width:640px}.tags{display:flex;gap:9px;flex-wrap:wrap;margin:24px 0 34px}.pill{padding:7px 11px;border:1px solid rgba(255,255,255,.25);font-size:12px;letter-spacing:.05em;color:#e0e8ed;border-radius:99px}.actions{display:flex;gap:11px;flex-wrap:wrap}.btn{display:inline-block;text-align:center;color:var(--navy);background:var(--gold);padding:13px 20px}.btn.secondary{background:transparent;border:1px solid #698197;color:#fff}.photo-panel{height:425px;border:1px solid #607891;border-radius:7px;position:relative;overflow:hidden;background:linear-gradient(140deg,#1f4056,#071727);display:grid;place-items:center}.photo-panel img{width:100%;height:100%;object-fit:cover;display:none}.photo-panel.has-photo img{display:block}.photo-panel.has-photo .placeholder{display:none}.placeholder{padding:28px;text-align:center;color:#c2d2dc}.placeholder svg{width:150px;max-width:100%;opacity:.55}.placeholder p{font-size:12px;max-width:200px}.photo-strip{position:absolute;bottom:0;left:0;right:0;padding:17px;background:linear-gradient(transparent,rgba(3,17,27,.9));font-size:11px;letter-spacing:.14em;font-weight:800}.stats{background:#f1e9d9;border-bottom:1px solid #ded3bf}.stats-grid{display:grid;grid-template-columns:repeat(6,1fr)}.stat{padding:24px 12px;text-align:center;border-right:1px solid #daccb7}.stat:last-child{border:0}.stat strong{display:block;font-size:23px;letter-spacing:-.04em;color:#102a40}.stat span{display:block;color:#6a7780;font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:700}section.content{padding:85px 0}.section-header{margin-bottom:30px}.section-header h2{font-size:clamp(28px,4vw,43px);margin:9px 0 8px;line-height:1.12;letter-spacing:-.05em}.section-header p{max-width:700px;color:#647482;margin:0}.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}.panel{border:1px solid #d6d7d5;border-radius:7px;background:#fff;padding:30px}.panel h3{margin:0 0 13px;font-size:20px}.panel p{margin:0 0 12px;color:#506270}.listline{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #e8ebe9;padding:12px 0;font-size:14px}.listline:last-child{border-bottom:0}.listline span{color:#657683}.listline strong{text-align:right}.dark-section{background:var(--navy);color:#fff}.dark-section .section-header p{color:#adbfcf}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.metric{background:#172e44;border:1px solid #2a445a;padding:23px;border-radius:5px}.metric strong{font-size:29px;color:var(--gold);display:block}.metric span{font-size:12px;color:#c3d1dc}.metric small{font-size:11px;color:#8ea4b5;display:block;margin-top:5px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.vid{border:1px solid #d6d7d5;background:white;overflow:hidden;border-radius:7px}.vidbox{height:170px;background:linear-gradient(130deg,#17334c,#254862);display:flex;align-items:center;justify-content:center;position:relative;color:#b8cada}.play{font-size:32px;border:1px solid #6f8ca2;width:65px;height:65px;display:grid;place-items:center;border-radius:50%}.vidbody{padding:22px}.vidbody h3{margin:0 0 8px}.vidbody p{margin:0;color:#657582;font-size:13px}.vidbody a{color:#1b5c83;text-decoration:underline;display:none;margin-top:12px;font-weight:700;font-size:13px}.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.step{border-top:3px solid #d5a74b;padding:19px 0}.step b{font-size:12px;color:#ad7e28;letter-spacing:.12em}.step h3{font-size:19px;margin:9px 0}.step p{font-size:14px;color:#566976}.cta{background:#e8d2a5;padding:52px 0}.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:28px}.cta h2{font-size:34px;letter-spacing:-.05em;margin:0 0 5px}.cta p{margin:0;color:#536170}.footer{background:#071827;color:#a3b5c2;padding:25px 0;font-size:12px}.footer .wrap{display:flex;justify-content:space-between;gap:25px}.note{color:#78848a;font-size:12px;margin-top:15px}.editbar{background:#fff7e3;border:1px solid #ead5a4;padding:15px 20px;display:none}.editbar.open{display:block}.editgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.field{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:700}.field input,.field textarea{width:100%;border:1px solid #cbd3d6;background:#fff;border-radius:4px;padding:10px;font:inherit;font-size:13px}.field textarea{min-height:85px}.editbar h3{margin:12px 0}.editbar .editactions{display:flex;gap:10px;flex-wrap:wrap;margin:17px 0}.editbar button{border:1px solid #17334c;border-radius:4px;padding:9px 12px;background:#17334c;color:#fff}.editbar button.alt{background:white;color:#17334c}.notice{font-size:12px;color:#6a5940}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #c78c2a;outline-offset:3px}@media(max-width:850px){.navlinks{display:none}.hero-grid{grid-template-columns:1fr;gap:35px}.hero-grid{padding:55px 0}.photo-panel{height:330px;max-width:470px}.stats-grid{grid-template-columns:repeat(3,1fr)}.stat:nth-child(3){border:0}.two,.cards,.timeline{grid-template-columns:1fr}.metric-grid{grid-template-columns:repeat(2,1fr)}.editgrid{grid-template-columns:1fr 1fr}.cta-inner{align-items:flex-start;flex-direction:column}}@media(max-width:480px){.wrap{width:calc(100% - 30px)}.nav{min-height:60px}.hero-grid{padding:35px 0}.photo-panel{height:280px}h1{font-size:53px}.sub{font-size:15px}.stat{padding:17px 6px}.stat strong{font-size:18px}.stat span{font-size:9px}.metric-grid,.editgrid{grid-template-columns:1fr 1fr}.panel{padding:21px}section.content{padding:55px 0}.footer .wrap{flex-direction:column}}
 @media print{.top,.actions,.editbar,.btn{display:none!important}.hero-grid{min-height:auto}.photo-panel{height:240px}section.content{padding:24px 0}.dark-section{print-color-adjust:exact}.stats{print-color-adjust:exact}}
-.vid video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#071827} .vid video:focus-visible{outline:3px solid #e3b45e}</style>
+.vid video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#071827} .vid video:focus-visible{outline:3px solid #e3b45e}
+.media-clips{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.25rem}
+.media-clips .vid video{object-fit:contain}
+
+html{scroll-padding-top:88px}
+.skip-link{position:fixed;top:8px;left:8px;z-index:20;padding:10px 16px;background:var(--gold);color:var(--navy);transform:translateY(-150%)}
+.skip-link:focus{transform:translateY(0)}
+.hero-grid{min-height:510px;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,65px);position:relative}
+.hero h1{text-transform:uppercase;font-size:clamp(47px,7.5vw,94px)}
+.photo-panel{margin:0;height:auto;aspect-ratio:4/3;min-width:0;border-radius:14px;box-shadow:0 20px 45px #04101b80}
+.photo-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-strip{padding-top:35px}
+section:not(.dark-section) .section-header .eyebrow{color:#765315}
+.cta{background:#132d45;color:#fff}
+.cta p{color:#d3dde5}
+.cta h2{font-size:clamp(27px,4vw,42px);line-height:1.1;margin:6px 0 12px}
+.contact-links{display:grid;gap:10px;min-width:min(100%,275px);max-width:100%}
+.contact-links a{display:block;padding:12px 16px;border:1px solid #a88951;border-radius:6px;color:#ffe4aa;font-weight:700;overflow-wrap:anywhere}
+.contact-links a:hover{background:#24435e}
+.contact-links a[hidden]{display:none}
+@media(max-width:850px){.hero-grid{min-height:0;grid-template-columns:minmax(0,1fr)}.photo-panel{max-width:600px;height:auto}}
+@media(max-width:480px){.hero h1{font-size:clamp(40px,12vw,57px)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.gallery-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.gallery-filters button{padding:8px 14px;border:1px solid #6b7d86;border-radius:24px;color:var(--navy);background:transparent;font-weight:700}
+.gallery-filters button[aria-pressed="true"]{color:#fff;background:var(--navy);border-color:var(--navy)}
+.gallery-year + .gallery-year{margin-top:34px}
+.gallery-year > h3{margin:0 0 14px;font-size:1.33rem}
+.gallery-date{display:block;font-size:.85rem;color:#526775;margin-top:8px}
+.gallery-photo{margin:0}
+.gallery-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#071827}
+.gallery-photo figcaption{font-weight:700}
+#video [hidden]{display:none}
+</style>
 </head>
 <body>
-<header class="top"><div class="wrap nav"><a href="#home" class="mark"><svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 2L34 18 18 34 2 18Z" stroke="#e3b45e" stroke-width="2"/><path d="M9 18h18M18 9v18" stroke="#e3b45e" stroke-width="1"/></svg> SG <span style="font-weight:400;color:#92aabd">/ BASEBALL 2030</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#about">About</a><a href="#performance">Performance</a><a href="#video">Video</a><a href="#academics">Academics</a><a href="#contact">Contact</a></nav><button class="navbtn" id="editToggle" aria-expanded="false">Edit profile</button></div></header>
+<a class="skip-link" href="#main-content">Skip to player profile</a>
+<header class="top"><div class="wrap nav"><a href="#home" class="mark"><svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 2L34 18 18 34 2 18Z" stroke="#e3b45e" stroke-width="2"/><path d="M9 18h18M18 9v18" stroke="#e3b45e" stroke-width="1"/></svg> SG <span style="font-weight:400;color:#92aabd">/ BASEBALL 2030</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#about">About</a><a href="#performance">Performance</a><a href="#video">Photos &amp; videos</a><a href="#academics">Academics</a><a href="#contact">Contact</a></nav><button class="navbtn" id="editToggle" aria-expanded="false">Edit profile</button></div></header>
 <div class="editbar" id="editBar"><div class="wrap"><h3>Edit Sathvik's profile — on this device</h3><p class="notice">Edits stay in this browser only. Use “Download updated webpage” to save a public-ready HTML copy. Never add a child's private phone number or home address.</p><div class="editgrid" id="editFields"></div><div class="editactions"><button id="saveEdit">Save changes on this device</button><button class="alt" id="downloadPage">Download updated webpage</button><button class="alt" id="clearEdit">Reset edits</button><button class="alt" id="printPage">Print / PDF</button></div><p class="notice" id="saveStatus" aria-live="polite"></p></div></div>
-<main>
-<section class="hero" id="home"><div class="wrap hero-grid"><div><div class="eyebrow">Student-athlete / Class of 2030</div><h1>SATHVIK<br><span>GONEPUDI.</span></h1><p class="sub">Right-handed pitcher • Outfield • Shortstop<br>Downingtown West High School • Pennsylvania</p><div class="tags"><span class="pill">RHP / OF / SS</span><span class="pill">BATS R / THROWS R</span><span class="pill">CLASS OF 2030</span></div><div class="actions"><a class="btn" href="#video">View baseball film</a><a class="btn secondary" href="#about">Player profile</a></div></div><div class="photo-panel" id="photoPanel"><img id="athletePhoto" alt="Sathvik baseball action photograph"><div class="placeholder"><svg viewBox="0 0 170 170" fill="none" aria-hidden="true"><circle cx="85" cy="85" r="70" stroke="currentColor" stroke-width="2"/><path d="M38 47c35 15 35 62 0 77M132 47c-35 15-35 62 0 77" stroke="currentColor" stroke-width="2" stroke-dasharray="5 7"/><path d="M62 60L85 36l23 24-23 24-23-24z" fill="currentColor" opacity=".2"/></svg><p>Add Sathvik's own baseball action photo using Edit profile.</p></div><div class="photo-strip">CLASS OF 2030 · PENNSYLVANIA</div></div></div></section>
-<div class="stats"><div class="wrap stats-grid"><div class="stat"><strong>2030</strong><span>Graduation</span></div><div class="stat"><strong id="height">5′11″</strong><span>Height *</span></div><div class="stat"><strong id="weight">160 lb</strong><span>Weight *</span></div><div class="stat"><strong id="gpa">3.5</strong><span>GPA *</span></div><div class="stat"><strong>RHP</strong><span>Primary position</span></div><div class="stat"><strong>R / R</strong><span>Bats / Throws</span></div></div></div>
+<main id="main-content">
+<section class="hero" id="home"><div class="wrap hero-grid"><div><div class="eyebrow">Baseball recruiting · Class of 2030</div><h1>Sathvik<br><span>Gonepudi</span></h1><p class="sub">Right-handed pitcher • Outfield • Shortstop<br>Downingtown West High School • Pennsylvania</p><div class="tags"><span class="pill">Bats right · Throws right</span><span class="pill">All-Star Sports Academy</span></div><div class="actions"><a class="btn" href="#video">View photos and highlights</a><a class="btn secondary" href="#contact">Contact the family</a></div></div><figure class="photo-panel has-photo" id="photoPanel">
+  <img id="athletePhoto" src="field-photo.jpg" alt="Baseball game viewed through the backstop">
+  <figcaption class="photo-strip" id="photoCaption">Game day</figcaption>
+</figure></div></section>
+<div class="stats"><div class="wrap stats-grid"><div class="stat"><strong>2030</strong><span>Graduation</span></div><div class="stat"><strong id="height">5′11″</strong><span>Height *</span></div><div class="stat"><strong id="weight">160 lb</strong><span>Weight *</span></div><div class="stat"><strong id="gpa">4.0</strong><span>GPA</span></div><div class="stat"><strong>RHP</strong><span>Primary position</span></div><div class="stat"><strong>R / R</strong><span>Bats / Throws</span></div></div></div>
 <section class="content" id="about"><div class="wrap"><div class="section-header"><div class="eyebrow">01 / Meet the athlete</div><h2>Driven to develop. On and off the field.</h2><p>A baseball and academic profile for coaches to follow Sathvik's progression throughout high school.</p></div><div class="two"><article class="panel"><h3>About Sathvik</h3><p id="bioText">I'm Sathvik Gonepudi, a Class of 2030 student-athlete at Downingtown West High School in Pennsylvania. I primarily play right-handed pitcher and also play outfield and shortstop. I'm focused on improving my pitching, hitting and fielding while taking academics seriously. My goal is to keep developing and earn the opportunity to compete in college baseball.</p><p class="note">Personal statement: Sathvik should review and edit this in his own voice.</p></article><article class="panel"><h3>Player details</h3><div class="listline"><span>High school</span><strong>Downingtown West</strong></div><div class="listline"><span>Graduation</span><strong>2030</strong></div><div class="listline"><span>Baseball organization</span><strong id="org">All-Star Sports Academy</strong></div><div class="listline"><span>Positions</span><strong>RHP · OF · SS</strong></div><div class="listline"><span>Hometown area</span><strong>Downingtown, PA</strong></div><div class="listline"><span>Bat / throw</span><strong>Right / Right</strong></div></article></div></div></section>
 <section class="content dark-section" id="performance"><div class="wrap"><div class="section-header"><div class="eyebrow">02 / Verified performance</div><h2>Measured progress, season by season.</h2><p>Numbers appear only after they have been measured or verified. A dash means not provided yet — it is not a zero.</p></div><div class="metric-grid"><div class="metric"><strong id="velo">—</strong><span>Fastball velocity</span><small>mph · verified reading</small></div><div class="metric"><strong id="era">—</strong><span>Earned run average</span><small>Latest season</small></div><div class="metric"><strong id="exitvelo">—</strong><span>Exit velocity</span><small>mph · measured</small></div><div class="metric"><strong id="dash">—</strong><span>60-yard dash</span><small>seconds · timed</small></div></div></div></section>
-<section class="content" id="video"><div class="wrap"><div class="section-header"><div class="eyebrow">03 / Game film</div><h2>Game highlights.</h2><p>Three provided GameChanger clips from 13U competition. These are actual game recordings, not staged skills videos. More up-to-date footage will be added as Sathvik develops.</p></div><div class="cards">
-<article class="vid"><video controls playsinline preload="metadata" poster="assets/strikeout.jpg" aria-label="Pitching strikeout clip"><source src="assets/strikeout.mp4" type="video/mp4">Your browser does not support video.</video><div class="vidbody"><h3>Pitching — Strikeout</h3><p>Vs. 6IX Academy 13U · supplied game clip</p></div></article>
-<article class="vid"><video controls playsinline preload="metadata" poster="assets/double-play.jpg" aria-label="Double play clip"><source src="assets/double-play.mp4" type="video/mp4">Your browser does not support video.</video><div class="vidbody"><h3>Defensive Play — Double Play</h3><p>Vs. 6IX Academy 13U · supplied game clip</p></div></article>
-<article class="vid"><video controls playsinline preload="metadata" poster="assets/stolen-base.jpg" aria-label="Stolen base clip"><source src="assets/stolen-base.mp4" type="video/mp4">Your browser does not support video.</video><div class="vidbody"><h3>Baserunning — Stolen Base</h3><p>Vs. Baseball U PA–Philly 13U · supplied game clip</p></div></article></div><p class="note">Recorded at 13U level. For future college evaluation, add current full-speed field footage and verified measurements; these clips document earlier development.</p></div></section>
-<section class="content" id="academics" style="background:#eeeae1"><div class="wrap"><div class="section-header"><div class="eyebrow">04 / The student-athlete</div><h2>Academics matter, too.</h2><p>Sathvik's academic achievements and interests can be updated each semester as his college goals become clearer.</p></div><div class="two"><div class="panel"><h3>Academic snapshot</h3><div class="listline"><span>High school</span><strong>Downingtown West High School</strong></div><div class="listline"><span>Class</span><strong>2030</strong></div><div class="listline"><span>Previously reported GPA *</span><strong id="gpa2">3.5</strong></div><div class="listline"><span>Academic interests</span><strong id="interests">To be added</strong></div></div><div class="panel"><h3>What comes next</h3><p>Keep up with academics, continue developing baseball skills, and document verified progress every season.</p><p>As recruiting becomes relevant, add a public game schedule, selected tournaments, coach-approved references, and a short introduction in Sathvik's own words.</p></div></div></div></section>
+<section class="content" id="video" aria-labelledby="gallery-heading">
+  <div class="wrap">
+    <div class="section-header">
+      <h2 id="gallery-heading">Baseball photos and videos</h2>
+      <p>Dated media appears newest first. Media awaiting a game date appears below.</p>
+    </div>
+    <div class="gallery-filters" id="gallery-filters" role="group" aria-label="Show media type" hidden>
+      <button type="button" data-filter="all" aria-pressed="true">All media</button>
+      <button type="button" data-filter="photo" aria-pressed="false">Photos</button>
+      <button type="button" data-filter="video" aria-pressed="false">Videos</button>
+    </div>
+    <div id="gallery-groups">
+      <section class="gallery-year" aria-labelledby="gallery-undated">
+        <h3 id="gallery-undated">Date to confirm</h3>
+        <div class="media-clips">
+<article class="vid" data-media="video" data-date=""><video controls playsinline preload="none" poster="strikeout.jpg" aria-label="Pitching strikeout clip"><source src="strikeout.mp4" type="video/mp4">Your browser does not support video.</video><div class="vidbody"><h3>Pitching — Strikeout</h3><p>Vs. 6IX Academy 13U · supplied game clip</p></div></article>
+<article class="vid" data-media="video" data-date=""><video controls playsinline preload="none" poster="double-play.jpg" aria-label="Double play clip"><source src="double-play.mp4" type="video/mp4">Your browser does not support video.</video><div class="vidbody"><h3>Defensive Play — Double Play</h3><p>Vs. 6IX Academy 13U · supplied game clip</p></div></article>
+<article class="vid" data-media="video" data-date=""><video controls playsinline preload="none" poster="stolen-base.jpg" aria-label="Stolen base clip"><source src="stolen-base.mp4" type="video/mp4">Your browser does not support video.</video><div class="vidbody"><h3>Baserunning — Stolen Base</h3><p>Vs. Baseball U PA–Philly 13U · supplied game clip</p></div></article>
+<article class="vid" data-media="video" data-date="">
+        <video controls playsinline preload="none" poster="IMG_6623.jpg" aria-label="Game clip 1">
+          <source src="IMG_6623.mp4" type="video/mp4">Your browser does not support embedded video.
+        </video>
+        <div class="vidbody"><h3>Game clip 1</h3></div>
+      </article>
+<article class="vid" data-media="video" data-date="">
+        <video controls playsinline preload="none" poster="IMG_6624.jpg" aria-label="Game clip 2">
+          <source src="IMG_6624.mp4" type="video/mp4">Your browser does not support embedded video.
+        </video>
+        <div class="vidbody"><h3>Game clip 2</h3></div>
+      </article>
+<article class="vid" data-media="video" data-date="">
+        <video controls playsinline preload="none" poster="IMG_6626.jpg" aria-label="Game clip 3">
+          <source src="IMG_6626.mp4" type="video/mp4">Your browser does not support embedded video.
+        </video>
+        <div class="vidbody"><h3>Game clip 3</h3></div>
+      </article>
+<article class="vid" data-media="video" data-date="">
+        <video controls playsinline preload="none" poster="IMG_6627.jpg" aria-label="Game clip 4">
+          <source src="IMG_6627.mp4" type="video/mp4">Your browser does not support embedded video.
+        </video>
+        <div class="vidbody"><h3>Game clip 4</h3></div>
+      </article>
+<article class="vid" data-media="video" data-date="">
+        <video controls playsinline preload="none" poster="IMG_6628.jpg" aria-label="Game clip 5">
+          <source src="IMG_6628.mp4" type="video/mp4">Your browser does not support embedded video.
+        </video>
+        <div class="vidbody"><h3>Game clip 5</h3></div>
+      </article>
+<article class="vid" data-media="video" data-date="">
+        <video controls playsinline preload="none" poster="IMG_6629.jpg" aria-label="Game clip 6">
+          <source src="IMG_6629.mp4" type="video/mp4">Your browser does not support embedded video.
+        </video>
+        <div class="vidbody"><h3>Game clip 6</h3></div>
+      </article>
+<article class="vid" data-media="video" data-date="">
+        <video controls playsinline preload="none" poster="IMG_6630.jpg" aria-label="Game clip 7">
+          <source src="IMG_6630.mp4" type="video/mp4">Your browser does not support embedded video.
+        </video>
+        <div class="vidbody"><h3>Game clip 7</h3></div>
+      </article>
+<article class="vid" data-media="video" data-date="">
+        <video controls playsinline preload="none" poster="IMG_6631.jpg" aria-label="Game clip 8">
+          <source src="IMG_6631.mp4" type="video/mp4">Your browser does not support embedded video.
+        </video>
+        <div class="vidbody"><h3>Game clip 8</h3></div>
+      </article>
+<figure class="vid gallery-photo" data-media="photo" data-date=""><img src="team-photo.jpg" alt="Combat baseball players in red jerseys posing together" loading="lazy" width="1440" height="1080"><figcaption class="vidbody">Combat team photo</figcaption></figure>
+<figure class="vid gallery-photo" data-media="photo" data-date=""><img src="field-photo.jpg" alt="Baseball game viewed through the backstop fence" loading="lazy" width="1440" height="1080"><figcaption class="vidbody">Game day from behind the backstop</figcaption></figure>
+          <figure class="vid gallery-photo" data-media="photo" data-date=""><img src="IMG_9383.jpg" alt="Combat batter in red: batting stance" loading="lazy" width="1536" height="1024"><figcaption class="vidbody">Batting stance</figcaption></figure>
+          <figure class="vid gallery-photo" data-media="photo" data-date=""><img src="IMG_9384.jpg" alt="Combat batter in red: set at the plate" loading="lazy" width="1536" height="1024"><figcaption class="vidbody">Set at the plate</figcaption></figure>
+          <figure class="vid gallery-photo" data-media="photo" data-date=""><img src="IMG_9385.jpg" alt="Combat batter in red: batting load" loading="lazy" width="1536" height="1024"><figcaption class="vidbody">Batting load</figcaption></figure>
+          <figure class="vid gallery-photo" data-media="photo" data-date=""><img src="IMG_9386.jpg" alt="Combat batter in red: front-foot lift" loading="lazy" width="1536" height="1024"><figcaption class="vidbody">Front-foot lift</figcaption></figure>
+          <figure class="vid gallery-photo" data-media="photo" data-date=""><img src="IMG_9387.jpg" alt="Combat batter in red: stride toward the pitch" loading="lazy" width="1536" height="1024"><figcaption class="vidbody">Stride toward the pitch</figcaption></figure>
+          <figure class="vid gallery-photo" data-media="photo" data-date=""><img src="IMG_9389.jpg" alt="Combat batter in red: swing follow-through" loading="lazy" width="1536" height="1024"><figcaption class="vidbody">Swing follow-through</figcaption></figure>
+          <figure class="vid gallery-photo" data-media="photo" data-date=""><img src="IMG_9390.jpg" alt="Combat batter in red: bat extension" loading="lazy" width="1536" height="1024"><figcaption class="vidbody">Bat extension</figcaption></figure>
+          <figure class="vid gallery-photo" data-media="photo" data-date=""><img src="IMG_9391.jpg" alt="Combat batter in red: after the swing" loading="lazy" width="1536" height="1024"><figcaption class="vidbody">After the swing</figcaption></figure>
+          <figure class="vid gallery-photo" data-media="photo" data-date=""><img src="IMG_9412.jpg" alt="Combat baserunner in red: lead off the base" loading="lazy" width="1536" height="1024"><figcaption class="vidbody">Lead off the base</figcaption></figure>
+          <figure class="vid gallery-photo" data-media="photo" data-date=""><img src="IMG_9413.jpg" alt="Combat baserunner in red: ready to run" loading="lazy" width="1536" height="1024"><figcaption class="vidbody">Ready to run</figcaption></figure>
+        </div>
+      </section>
+    </div>
+    <p id="gallery-empty" hidden>No media in this view.</p>
+  </div>
+</section>
+<section class="content" id="academics" style="background:#eeeae1"><div class="wrap"><div class="section-header"><div class="eyebrow">04 / The student-athlete</div><h2>Academics matter, too.</h2><p>Sathvik's academic achievements and interests can be updated each semester as his college goals become clearer.</p></div><div class="two"><div class="panel"><h3>Academic snapshot</h3><div class="listline"><span>High school</span><strong>Downingtown West High School</strong></div><div class="listline"><span>Class</span><strong>2030</strong></div><div class="listline"><span>Current GPA</span><strong id="gpa2">4.0</strong></div><div class="listline"><span>Academic interests</span><strong id="interests">To be added</strong></div></div><div class="panel"><h3>What comes next</h3><p>Keep up with academics, continue developing baseball skills, and document verified progress every season.</p><p>As recruiting becomes relevant, add a public game schedule, selected tournaments, coach-approved references, and a short introduction in Sathvik's own words.</p></div></div></div></section>
 <section class="content"><div class="wrap"><div class="section-header"><div class="eyebrow">05 / Development path</div><h2>Building toward 2030.</h2></div><div class="timeline"><div class="step"><b>2026–27 / FRESHMAN YEAR</b><h3>Build the foundation</h3><p>Develop skills, gather initial film and track academic and athletic progress.</p></div><div class="step"><b>2027–29 / SOPHOMORE–JUNIOR</b><h3>Show improvement</h3><p>Update measured performance, play consistently, and research schools based on fit.</p></div><div class="step"><b>2029–30 / SENIOR YEAR</b><h3>Choose the right fit</h3><p>Compare academic programs, baseball opportunities, finances and personal priorities.</p></div></div></div></section>
-<section class="cta" id="contact"><div class="wrap cta-inner"><div><div class="eyebrow" style="color:#825d1f">Recruiting inquiries</div><h2>Follow Sathvik's journey.</h2><p id="contactText">Coach or recruiting contact will be available here when a parent-managed email is added.</p></div><a class="btn" id="emailButton" style="display:none" href="#contact">Contact recruiting family</a></div></section>
-</main><footer class="footer"><div class="wrap"><div>© <span id="year"></span> Sathvik Gonepudi · Baseball class of 2030</div><div>* Height, weight and GPA are previously supplied figures — confirm before sharing with coaches.</div></div></footer>
-<script id="profile-data" type="application/json">{"height":"5′11″","weight":"160 lb","gpa":"3.5","org":"All-Star Sports Academy","bioText":"I'm Sathvik Gonepudi, a Class of 2030 student-athlete at Downingtown West High School in Pennsylvania. I primarily play right-handed pitcher and also play outfield and shortstop. I'm focused on improving my pitching, hitting and fielding while taking academics seriously. My goal is to keep developing and earn the opportunity to compete in college baseball.","velo":"","era":"","exitvelo":"","dash":"","interests":"","pitchLink":"","fieldLink":"","hitLink":"","email":"","photo":""}</script>
+<section class="cta" id="contact" aria-labelledby="contact-heading">
+  <div class="wrap cta-inner">
+    <div>
+      <div class="eyebrow">Recruiting inquiries</div>
+      <h2 id="contact-heading">Contact Sathvik’s family</h2>
+      <p>Coaches can reach either parent by email.</p>
+    </div>
+    <div class="contact-links">
+      <a id="emailButton" href="mailto:vgonepudi@gmail.com?subject=Sathvik%20Gonepudi%20%7C%20Class%20of%202030%20Baseball">vgonepudi@gmail.com</a>
+      <a id="backupEmailButton" href="mailto:gonepudib@gmail.com?subject=Sathvik%20Gonepudi%20%7C%20Class%20of%202030%20Baseball">gonepudib@gmail.com</a>
+    </div>
+  </div>
+</section>
+</main><footer class="footer"><div class="wrap"><div>© <span id="year"></span> Sathvik Gonepudi · Baseball class of 2030</div><div>* Height and weight were previously reported.</div></div></footer>
+<script id="profile-data" type="application/json">{"height":"5′11″","weight":"160 lb","gpa":"4.0","org":"All-Star Sports Academy","bioText":"I'm Sathvik Gonepudi, a Class of 2030 student-athlete at Downingtown West High School in Pennsylvania. I primarily play right-handed pitcher and also play outfield and shortstop. I'm focused on improving my pitching, hitting and fielding while taking academics seriously. My goal is to keep developing and earn the opportunity to compete in college baseball.","velo":"","era":"","exitvelo":"","dash":"","interests":"","pitchLink":"","fieldLink":"","hitLink":"","email":"vgonepudi@gmail.com","photo":"","backupEmail":"gonepudib@gmail.com"}</script>
 <script>
-(function(){'use strict';const defaults=JSON.parse(document.getElementById('profile-data').textContent);const key='sathvik-recruiting-v1';let profile;try{profile={...defaults,...JSON.parse(localStorage.getItem(key)||'{}')}}catch(e){profile={...defaults}};
-const labels={height:'Height',weight:'Weight',gpa:'GPA',org:'Baseball organization',velo:'Verified fastball velocity (mph)',era:'Season ERA',exitvelo:'Measured exit velocity (mph)',dash:'Timed 60-yard dash (sec)',interests:'Academic interests',pitchLink:'Pitching video URL (https://)',fieldLink:'Fielding video URL (https://)',hitLink:'Hitting video URL (https://)',email:'Parent-managed recruiting email',photo:'Photo URL (https://) or paste embedded image data',bioText:'Sathvik’s personal statement'};
-const $=id=>document.getElementById(id);function validUrl(s){try{return ['https:','http:'].includes(new URL(s).protocol)}catch(e){return false}};function apply(){for(const id of ['height','weight','gpa','org','interests','velo','era','exitvelo','dash'])$(id).textContent=profile[id]|| (['velo','era','exitvelo','dash'].includes(id)?'—':'To be added');$('gpa2').textContent=profile.gpa||'To be added';$('bioText').textContent=profile.bioText||defaults.bioText;for(const id of ['pitchLink','fieldLink','hitLink']){const a=$(id);if(!a)continue;a.style.display=validUrl(profile[id])?'inline-block':'none';if(validUrl(profile[id]))a.href=profile[id];else a.removeAttribute('href')}const img=$('athletePhoto');if(validUrl(profile.photo)||profile.photo.startsWith('data:image/')){img.src=profile.photo;$('photoPanel').classList.add('has-photo')}else{img.removeAttribute('src');$('photoPanel').classList.remove('has-photo')}const mail=profile.email.trim();const valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);$('emailButton').style.display=valid?'inline-block':'none';if(valid){$('emailButton').href='mailto:'+encodeURIComponent(mail)+'?subject='+encodeURIComponent('Sathvik Gonepudi 2030 Baseball Recruiting');$('contactText').textContent='For college recruiting inquiries, please contact the parent-managed recruiting email.'}else $('contactText').textContent='Coach or recruiting contact will be available here when a parent-managed email is added.'}
-const fields=$('editFields');Object.entries(labels).forEach(([id,label])=>{const wrap=document.createElement('label');wrap.className='field';wrap.textContent=label;const input=id==='bioText'?document.createElement('textarea'):document.createElement('input');input.id='edit-'+id;input.value=profile[id]||'';if(id==='email')input.type='email';if(id==='photo')input.placeholder='Paste hosted photo URL';wrap.appendChild(input);fields.appendChild(wrap)});const imageLabel=document.createElement('label');imageLabel.className='field';imageLabel.textContent='Or select a photo from your device (saved inside downloaded HTML)';const imageInput=document.createElement('input');imageInput.type='file';imageInput.accept='image/*';imageInput.addEventListener('change',()=>{const file=imageInput.files[0];if(!file)return;if(file.size>1700000){$('saveStatus').textContent='Please choose a photo under 1.7 MB for a compact webpage.';return}const reader=new FileReader();reader.onload=()=>{$('edit-photo').value=reader.result;$('saveStatus').textContent='Photo loaded. Click Save changes.'};reader.readAsDataURL(file)});imageLabel.appendChild(imageInput);fields.appendChild(imageLabel);
-function collect(){for(const id of Object.keys(labels)){profile[id]=$('edit-'+id).value.trim()}for(const id of ['pitchLink','fieldLink','hitLink'])if(profile[id]&&!validUrl(profile[id])){alert('Please use a full https:// link for '+labels[id]);return false}if(profile.photo&&!validUrl(profile.photo)&&!profile.photo.startsWith('data:image/')){alert('Photo must be an https:// URL or uploaded file');return false}return true}
-$('editToggle').onclick=()=>{const open=$('editBar').classList.toggle('open');$('editToggle').setAttribute('aria-expanded',String(open));$('editToggle').textContent=open?'Close editor':'Edit profile';if(open)$('editBar').scrollIntoView({behavior:'smooth',block:'start'})};$('saveEdit').onclick=()=>{if(!collect())return;try{localStorage.setItem(key,JSON.stringify(profile));$('saveStatus').textContent='Saved on this device. Download the updated webpage to publish changes.'}catch(e){$('saveStatus').textContent='Browser storage is full. Use Download updated webpage.'}apply()};$('clearEdit').onclick=()=>{if(!confirm('Reset all local edits on this browser?'))return;localStorage.removeItem(key);profile={...defaults};Object.keys(labels).forEach(id=>$('edit-'+id).value=profile[id]||'');apply();$('saveStatus').textContent='Local edits reset.'};$('printPage').onclick=()=>window.print();
+(function(){'use strict';const defaults=JSON.parse(document.getElementById('profile-data').textContent);
+const key = 'sathvik-recruiting-v2';
+const legacyKey = 'sathvik-recruiting-v1';
+let profile = {...defaults};
+try {
+  const saved = JSON.parse(localStorage.getItem(key) || 'null');
+  // Keep other local edits while applying the new published GPA and contacts.
+  const {gpa, email, ...legacy} = JSON.parse(localStorage.getItem(legacyKey) || '{}') || {};
+  profile = {...defaults, ...(saved ?? legacy)};
+} catch (error) {
+  // Defaults are available even where browser storage is unavailable.
+}
+
+const labels={height:'Height',weight:'Weight',gpa:'GPA',org:'Baseball organization',velo:'Verified fastball velocity (mph)',era:'Season ERA',exitvelo:'Measured exit velocity (mph)',dash:'Timed 60-yard dash (sec)',interests:'Academic interests',pitchLink:'Pitching video URL (https://)',fieldLink:'Fielding video URL (https://)',hitLink:'Hitting video URL (https://)',email:'Parent recruiting email',backupEmail:'Second parent recruiting email',photo:'Photo URL (https://) or paste embedded image data',bioText:'Sathvik’s personal statement'};
+const $=id=>document.getElementById(id);function validUrl(s){try{return ['https:','http:'].includes(new URL(s).protocol)}catch(e){return false}};function apply(){for(const id of ['height','weight','gpa','org','interests','velo','era','exitvelo','dash'])$(id).textContent=profile[id]|| (['velo','era','exitvelo','dash'].includes(id)?'—':'To be added');$('gpa2').textContent=profile.gpa||'To be added';$('bioText').textContent=profile.bioText||defaults.bioText;for(const id of ['pitchLink','fieldLink','hitLink']){const a=$(id);if(!a)continue;a.style.display=validUrl(profile[id])?'inline-block':'none';if(validUrl(profile[id]))a.href=profile[id];else a.removeAttribute('href')}const img = $('athletePhoto');
+const hasCustomPhoto = validUrl(profile.photo) || profile.photo.startsWith('data:image/');
+img.src = hasCustomPhoto ? profile.photo : 'field-photo.jpg';
+img.alt = hasCustomPhoto ? 'Sathvik’s baseball profile photo' : 'Baseball game viewed through the backstop';
+$('photoCaption').textContent = hasCustomPhoto ? 'Sathvik Gonepudi' : 'Game day';
+updateEmail('emailButton', profile.email);
+updateEmail('backupEmailButton', profile.backupEmail);
+}
+function updateEmail(id, address) {
+  const link = $(id);
+  link.hidden = !validEmail(address);
+  link.textContent = address;
+  if (link.hidden) {
+    link.removeAttribute('href');
+    return;
+  }
+  const subject = encodeURIComponent('Sathvik Gonepudi | Class of 2030 Baseball');
+  link.href = 'mailto:' + encodeURIComponent(address).replace('%40', '@') + '?subject=' + subject;
+}
+function validEmail(address) {
+  return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(address);
+}
+
+const fields=$('editFields');Object.entries(labels).forEach(([id,label])=>{const wrap=document.createElement('label');wrap.className='field';wrap.textContent=label;const input=id==='bioText'?document.createElement('textarea'):document.createElement('input');input.id='edit-'+id;input.value=profile[id]||'';if(id==='email'||id==='backupEmail')input.type='email';if(id==='photo')input.placeholder='Paste hosted photo URL';wrap.appendChild(input);fields.appendChild(wrap)});const imageLabel=document.createElement('label');imageLabel.className='field';imageLabel.textContent='Or select a photo from your device (saved inside downloaded HTML)';const imageInput=document.createElement('input');imageInput.type='file';imageInput.accept='image/*';imageInput.addEventListener('change',()=>{const file=imageInput.files[0];if(!file)return;if(file.size>1700000){$('saveStatus').textContent='Please choose a photo under 1.7 MB for a compact webpage.';return}const reader=new FileReader();reader.onload=()=>{$('edit-photo').value=reader.result;$('saveStatus').textContent='Photo loaded. Click Save changes.'};reader.readAsDataURL(file)});imageLabel.appendChild(imageInput);fields.appendChild(imageLabel);
+function collect(){for(const id of Object.keys(labels)){profile[id]=$('edit-'+id).value.trim()}for(const id of ['pitchLink','fieldLink','hitLink'])if(profile[id]&&!validUrl(profile[id])){alert('Please use a full https:// link for '+labels[id]);return false}if(profile.photo&&!validUrl(profile.photo)&&!profile.photo.startsWith('data:image/')){alert('Photo must be an https:// URL or uploaded file');return false}
+for (const field of ['email', 'backupEmail']) {
+  if (profile[field] && !validEmail(profile[field])) {
+    alert('Please enter a valid email address for ' + labels[field] + '.');
+    return false;
+  }
+}
+return true}
+$('editToggle').onclick=()=>{const open=$('editBar').classList.toggle('open');$('editToggle').setAttribute('aria-expanded',String(open));$('editToggle').textContent=open?'Close editor':'Edit profile';if(open)$('editBar').scrollIntoView({behavior:'smooth',block:'start'})};$('saveEdit').onclick=()=>{if(!collect())return;try{localStorage.setItem(key,JSON.stringify(profile));$('saveStatus').textContent='Saved on this device. Download the updated webpage to publish changes.'}catch(e){$('saveStatus').textContent='Browser storage is full. Use Download updated webpage.'}apply()};$('clearEdit').onclick=()=>{if(!confirm('Reset all local edits on this browser?'))return;localStorage.removeItem(key);localStorage.removeItem(legacyKey);profile={...defaults};Object.keys(labels).forEach(id=>$('edit-'+id).value=profile[id]||'');apply();$('saveStatus').textContent='Local edits reset.'};$('printPage').onclick=()=>window.print();
 $('downloadPage').onclick=()=>{if(!collect())return;apply();const clone=document.documentElement.cloneNode(true);const data=clone.querySelector('#profile-data');data.textContent=JSON.stringify(profile).replace(/</g,'\\u003c');clone.querySelector('#editBar').classList.remove('open');clone.querySelector('#editToggle').textContent='Edit profile';clone.querySelector('#editToggle').setAttribute('aria-expanded','false');const fields=clone.querySelector('#editFields');fields.innerHTML='';const html='<!doctype html>\n'+clone.outerHTML;const b=new Blob([html],{type:'text/html;charset=utf-8'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='sathvik-gonepudi-baseball.html';a.click();setTimeout(()=>URL.revokeObjectURL(u),2000);$('saveStatus').textContent='Updated webpage downloaded. Review it before publishing.'};
 $('year').textContent=new Date().getFullYear();apply()})();
+</script>
+
+<script>
+(() => {
+  const gallery = document.getElementById('gallery-groups');
+  const toolbar = document.getElementById('gallery-filters');
+  const status = document.getElementById('gallery-empty');
+  const dateFormat = new Intl.DateTimeFormat('en-US', {
+    month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC'
+  });
+  const create = (tag, className) => {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    return element;
+  };
+
+  function captureDate(text) {
+    if (/^[1-9][0-9]{3}$/.test(text)) return text;
+    if (!/^[1-9][0-9]{3}-[0-9]{2}-[0-9]{2}$/.test(text)) return '';
+    const date = new Date(text + 'T00:00:00Z');
+    return Number.isFinite(+date) && date.toISOString().slice(0, 10) === text ? text : '';
+  }
+
+  const items = Array.from(gallery.querySelectorAll('[data-media]'), card => ({
+    card, date: captureDate(card.dataset.date)
+  })).sort((a, b) => b.date.localeCompare(a.date));
+
+  const years = new Map();
+  gallery.replaceChildren();
+  for (const {card, date} of items) {
+    const year = date.slice(0, 4);
+    if (!years.has(year)) {
+      const section = create('section', 'gallery-year');
+      const heading = create('h3');
+      heading.id = 'gallery-year-' + (year || 'undated');
+      heading.textContent = year || 'Date to confirm';
+      section.setAttribute('aria-labelledby', heading.id);
+      const grid = create('div', 'media-clips');
+      section.append(heading, grid);
+      gallery.append(section);
+      years.set(year, {section, grid});
+    }
+
+    // A saved copy of the page can already contain rendered dates.
+    card.querySelector('.gallery-date')?.remove();
+    if (date.length === 10) {
+      const label = create('time', 'gallery-date');
+      label.dateTime = date;
+      label.textContent = dateFormat.format(new Date(date + 'T00:00:00Z'));
+      card.querySelector('.vidbody').append(label);
+    }
+    years.get(year).grid.append(card);
+  }
+
+  function show(filter) {
+    let visible = 0;
+    for (const {section, grid} of years.values()) {
+      let groupVisible = 0;
+      for (const card of grid.children) {
+        card.hidden = filter !== 'all' && card.dataset.media !== filter;
+        if (card.hidden) card.querySelector('video')?.pause();
+        else groupVisible++;
+      }
+      section.hidden = groupVisible === 0;
+      visible += groupVisible;
+    }
+    for (const button of toolbar.querySelectorAll('button')) {
+      button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
+    }
+    status.hidden = visible > 0;
+  }
+
+  toolbar.addEventListener('click', event => {
+    const button = event.target.closest('button[data-filter]');
+    if (button) show(button.dataset.filter);
+  });
+  show('all');
+  toolbar.hidden = false;
+})();
 </script>
 </body></html>
